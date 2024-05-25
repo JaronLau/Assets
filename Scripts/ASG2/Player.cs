@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using StarterAssets;
 
 public class Player : MonoBehaviour
 {
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour
     /// UI for collecting all collectibles
     /// </summary>
     public GameObject collectAllUI;
-    
+
     /// <summary>
     /// function to increase the score of player by adding coin value to player score, and decreases total collectibles in world
     /// </summary>
@@ -38,7 +39,7 @@ public class Player : MonoBehaviour
     public void IncreaseScore(int scoreToAdd)
     {
         currentScore += scoreToAdd;
-        scoreText.text = currentScore.ToString();
+        //scoreText.text = currentScore.ToString();
         totalCollect -= 1;
     }
     /// <summary>

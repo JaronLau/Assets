@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
 using TMPro;
+using StarterAssets;
 
 
 
-public class Collectible : MonoBehaviour
+public class SpeedCoin : Collectible
 {
     /// <summary>
     /// text mesh for displaying keycards collected
@@ -46,28 +47,14 @@ public class Collectible : MonoBehaviour
 
         if ((collision.gameObject.tag == "Player") && (gameObject.tag == "Collectible"))
         {
+            Debug.Log("collected");
+            AddSpeed(collision);
             collision.gameObject.GetComponent<Player>().IncreaseScore(scoreCoinGold);
             GetCollected();
         }
-
-        else if ((collision.gameObject.tag == "Player") && (gameObject.tag == "Card"))
-        {
-            keyCard += 1;
-            collision.gameObject.GetComponent<Player>().IncreaseCard(1);
-            GetCollected();
-            cardText.text = keyCard.ToString() + "/1";
-        }
-
-        else if ((collision.gameObject.tag == "Player") && (gameObject.tag == "Key"))
-        {
-            keys += 1;
-            collision.gameObject.GetComponent<Player>().IncreaseKey(1);
-            GetCollected();
-            keyText.text = keys.ToString() + "/2";
-        }
     }
 
-    
+
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +65,6 @@ public class Collectible : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
