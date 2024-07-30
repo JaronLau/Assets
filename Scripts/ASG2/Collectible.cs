@@ -7,12 +7,9 @@ using StarterAssets;
 
 public class Collectible : MonoBehaviour
 {
-    public void AddJump(Collision collision)
+    // Base collection method
+    public virtual void Collected(Player player)
     {
-        collision.gameObject.GetComponent<FirstPersonController>().JumpHeight = 3.0f;
-    }
-    public void AddSpeed(Collision collision)
-    {
-        collision.gameObject.GetComponent<FirstPersonController>().MoveSpeed = 10.0f;
+        Debug.Log($"{gameObject.name} collected by {player.gameObject.name}");
     }
 }
